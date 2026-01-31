@@ -1,13 +1,15 @@
-import os
 from sqlalchemy import create_engine
+import os
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-if DATABASE_URL:
-    engine = create_engine(DATABASE_URL)
-else:
-    engine = None
+# For local testing ONLY
+#if DATABASE_URL is None:
+   # DATABASE_URL = "postgresql://neondb_owner:npg_UVB3wdDN8AWj@ep-flat-king-ah41moa0-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+if DATABASE_URL is None:
+    raise ValueError("DATABASE_URL not set")
 
+engine = create_engine(DATABASE_URL)
 
 
 #from sqlalchemy import create_engine
