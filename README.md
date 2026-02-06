@@ -1,74 +1,126 @@
 # SME Financial Health Platform
 
-An end-to-end AI based financial health assessment platform for Small and Medium Enterprises (SMEs).
+An end-to-end AI-based financial health assessment platform for Small and Medium Enterprises (SMEs).
 
-This application allows business users to upload their financial data and receive:
-- Financial summary and KPIs
+This system analyzes SME financial data and generates:
+
+- Financial summary metrics
 - Risk indicators
-- Simple credit score
-- Revenue forecasting
-- Business recommendations
-- Multilingual (English / Hindi) recommendations
-- Secure login system
+- Revenue statistics
+- Basic forecasting insights
+- Structured JSON analysis output
+
+The backend API is built using FastAPI and deployed on Render Cloud.
 
 ---
 
-## Features
+## 🚀 Live Deployment
 
-- Login based access
-- CSV financial data upload
-- Key financial metrics calculation
-- Risk detection engine
-- Credit scoring logic
-- 6-month revenue forecasting (Linear Regression)
-- Recommendation engine
-- Multilingual output layer (English / Hindi)
-- PostgreSQL support (local environment)
-- Streamlit based dashboard
+API Base URL:
+https://sme-finance-api.onrender.com
+
+Swagger Documentation:
+https://sme-finance-api.onrender.com/docs
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
+Backend:
 - Python
-- Streamlit
-- Pandas, NumPy
-- Scikit-learn
-- PostgreSQL (optional / local)
+- FastAPI
+- Uvicorn
+- Pandas
+- NumPy
+
+Deployment:
+- Render
+- GitHub
+
+Optional:
+- PostgreSQL
 - SQLAlchemy
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
-<img width="200" height="500" alt="image" src="https://github.com/user-attachments/assets/c631b628-40e7-4497-bb34-f2d3917dd7d7" />
+<img width="257" height="611" alt="image" src="https://github.com/user-attachments/assets/74042159-d730-4fba-b10b-b17a463d7e84" />
 
----
-
-## How to Run Locally
-       conda activate sme_env
-       streamlit run frontend/streamlit_app.py
----
-
-## Login
-
-A sample user can be created using the backend authentication utility.
 
 ---
 
-## Note on Database
+## 📊 API Endpoint
 
-PostgreSQL is supported for local development.
-For cloud deployment the database layer is optional and disabled automatically.
+### POST /analyze
+
+Request Body:
+
+{
+  "file_path": "data/sample_financials.csv"
+}
+
+Response:
+
+{
+  "rows": 12,
+  "columns": 4,
+  "numeric_summary": {
+    "amount": {
+      "mean": 47916.66,
+      "sum": 575000,
+      "min": 15000,
+      "max": 130000
+    }
+  }
+}
 
 ---
 
-## Purpose
+## ⚙️ Local Setup
 
-This project was developed as a portfolio and hackathon project to demonstrate:
-- financial analytics
-- applied machine learning
-- data pipelines
-- AI driven recommendations
-- dashboard development
+1️⃣ Clone Repository
 
+       git clone https://github.com/Vijayalakshmi-Indhuja/SME-Financial-health-platform.git
+       cd SME-Financial-health-platform
+---
+
+2️⃣ Create Environment
+
+      conda create -n sme_env python=3.10
+      conda activate sme_env
+
+
+4️⃣ Run Application
+
+      uvicorn backend.app:app --reload
+
+
+Access:
+http://127.0.0.1:8000/docs
+
+---
+
+## ☁️ Deployment (Render)
+
+Start command used in Render:
+
+      uvicorn backend.app:app --host 0.0.0.0 --port 10000
+
+
+---
+
+## 🎯 Use Case
+
+This platform helps SMEs:
+- Understand financial health
+- Monitor revenue patterns
+- Detect risk indicators
+- Generate structured financial insights
+
+---
+
+## 👩‍💻 Author
+
+Vijayalakshmi K   
+Hackathon Submission Project
